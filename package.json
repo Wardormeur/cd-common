@@ -1,0 +1,16 @@
+{
+  "name": "cd-menu",
+  "version": "1.0.0",
+  "description": "Unified menu for CoderDojo websites",
+  "main": "cd-menu.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-less": "^3.1.0"
+  }
+}

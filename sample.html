@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:200,300,400" type="text/css">
+    <link rel="stylesheet" href="cd-menu.css" type="text/css">
+    <script type="text/javascript" src="cd-menu.js"></script>
+    <style type="text/css">
+      body {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+
+      @media screen and (min-width: 769px) {
+        body {
+          background: #eee;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cd-menu cd-menu__desktopNav">
+      <div class="cd-menu__firstRow">
+        <a href="/">
+          <img src="coderdojo-logo-light-bg.svg" width="120" height="44" />
+        </a>
+        <a href="#" class="cd-menu__donateButton">Donate</a>
+        <form class="cd-menu__search" role="search">
+          <input class="cd-menu__searchInput" type="text" placeholder="Search..." name="s" />
+          <button class="cd-menu__searchButton" type="button"><span class="fa fa-search fa-2x"></span></button>
+        </div>
+        <div class="cd-menu__flexSpacer"></div>
+        <div class="cd-menu__account">
+          <a href="https://zen.coderdojo.com/register">Register</a>
+          <a href="https://zen.coderdojo.com/login">Login</a>
+        </div>
+        <div class="cd-menu__profile">
+          <img class="cd-menu__profilePic" src="http://placekitten.com/32/32" />
+          <span class="cd-menu__profileName">My Account</span>
+          <i class="cd-menu__subMenuIcon fa fa-chevron-down"></i>
+          <ul class="cd-menu__profileMenu">
+            <li><a class="cd-menu__profileLink" href="#">My Profile</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">My Children</a></li>
+            <li><a href="#">My Events</a></li>
+            <li><a href="#">My Dojos</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+      <ul class="cd-menu__secondRow">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Attend a Dojo</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">Create a Dojo</a></li>
+        <li><a href="#">Volunteer</a></li>
+        <li class="cd-menu__dropdown">
+          <span>
+            Community
+            <i class="cd-menu__dropdownIcon fa fa-chevron-down"></i>
+            <ul>
+              <li><a href="#">Badges</a></li>
+              <li><a href="#">Regional Bodies</a></li>
+              <li><a href="https://forums.coderdojo.com/">Forums</a></li>
+            </ul>
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div class="cd-menu__mobileNavBar">
+      <button type="button" class="cd-menu__hamburger" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="cd-menu__hamburgerBar"></span>
+        <span class="cd-menu__hamburgerBar"></span>
+        <span class="cd-menu__hamburgerBar"></span>
+      </button>
+      <a href="/">
+        <img src="coderdojo-logo-light-bg.svg" width="120" height="44" style="padding-left: 5px;" />
+      </a>
+    </div>
+    <div class="cd-menu__scrim"></div>
+    <nav id="cd-menu__slidingMenuPrimary" class="cd-menu__slidingMenu" data-toggle="closed">
+      <div class="cd-menu__closeRow">
+        <span class="cd-menu__closeButton">&times;</span>
+      </div>
+      <div class="cd-menu__content">
+        <div class="cd-menu__contentBlock cd-menu__search">
+          <input class="cd-menu__searchInput" type="text" placeholder="Search...">
+          <button class="cd-menu__searchButton" type="button"><span class="fa fa-search fa-2x"></span></button>
+        </div>
+        <div class="cd-menu__contentBlock cd-menu__account">
+          <a href="https://zen.coderdojo.com/register">Register</a>
+          <a href="https://zen.coderdojo.com/login">Login</a>
+        </div>
+        <ul class="cd-menu__contentBlock">
+          <li class="cd-menu__profile">
+            <span>
+              <img class="cd-menu__profilePic" src="http://placekitten.com/32/32" />
+              <span class="cd-menu__profileName">My Account</span>
+              <i class="cd-menu__subMenuIcon fa fa-chevron-right"></i>
+            </span>
+            <div class="cd-menu__slidingMenu cd-menu__slidingMenuSecondary" data-toggle="closed">
+              <div class="cd-menu__closeRow" style="background:white;">
+                <span class="cd-menu__backButton fa fa-chevron-left fa-lg"></span>
+                <span class="cd-menu__closeButton">&times;</span>
+              </div>
+              <div class="cd-menu__content">
+                <div class="cd-menu__contentBlock cd-menu__profileHeader">
+                  <img class="cd-menu__profilePic" src="http://placekitten.com/128/128" />
+                  <span class="cd-menu__profileName"></span>
+                </div>
+                <ul class="cd-menu__contentBlock cd-menu__profileMenu">
+                  <li><a class="cd-menu__profileLink" href="#">My Profile</a></li>
+                  <li><a href="#">Dashboard</a></li>
+                  <li><a href="#">My Children</a></li>
+                  <li><a href="#">My Events</a></li>
+                  <li><a href="#">My Dojos</a></li>
+                  <li><a href="#">Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Attend a Dojo</a></li>
+          <li>
+            <span>
+              Community
+              <i class="cd-menu__subMenuIcon fa fa-chevron-right"></i>
+            </span>
+            <div class="cd-menu__slidingMenu cd-menu__slidingMenuSecondary" data-toggle="closed">
+              <div class="cd-menu__closeRow">
+                <span class="cd-menu__backButton fa fa-chevron-left fa-lg"></span>
+                <span class="cd-menu__closeButton">&times;</span>
+              </div>
+              <div class="cd-menu__content">
+                <div class="cd-menu__contentBlock cd-menu__header">
+                  <span>Community</span>
+                </div>
+                <ul class="cd-menu__contentBlock">
+                  <li><a href="#">Badges</a></li>
+                  <li><a href="#">Community Committee</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">Create a Dojo</a></li>
+          <li><a href="#">Volunteer</a></li>
+          <li>
+            <span>
+              Forums
+              <i class="cd-menu__subMenuIcon fa fa-chevron-right"></i>
+            </span>
+            <div class="cd-menu__slidingMenu cd-menu__slidingMenuSecondary" data-toggle="closed">
+              <div class="cd-menu__closeRow">
+                <span class="cd-menu__backButton fa fa-chevron-left fa-lg"></span>
+                <span class="cd-menu__closeButton">&times;</span>
+              </div>
+              <div class="cd-menu__content">
+                <div class="cd-menu__contentBlock cd-menu__header">
+                  <span>Navigation</span>
+                </div>
+                <ul class="cd-menu__contentBlock">
+                  <li><a href="#">Unread</a></li>
+                  <li><a href="#">Recent</a></li>
+                  <li><a href="#">Tags</a></li>
+                  <li><a href="#">Popular</a></li>
+                  <li><a href="#">Users</a></li>
+                  <li><a href="#">Groups</a></li>
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">Search</a></li>
+                </ul>
+                <div class="cd-menu__contentBlock cd-menu__header">
+                  <span>Profile</span>
+                </div>
+                <ul class="cd-menu__contentBlock">
+                  <li><a href="#">Daniel Brierton</a></li>
+                  <li><a href="#">Online</a></li>
+                  <li><a href="#">Away</a></li>
+                  <li><a href="#">Do not disturb</a></li>
+                  <li><a href="#">Invisible</a></li>
+                  <li><a href="#">Logout</a></li>
+                </ul>
+                <div class="cd-menu__contentBlock cd-menu__header">
+                  <span>Notifications</span>
+                </div>
+                <ul class="cd-menu__contentBlock">
+                  <li><a href="#">New message from Pete OShea</a></li>
+                </ul>
+                <div class="cd-menu__contentBlock cd-menu__header">
+                  <span>Chats</span>
+                </div>
+                <ul class="cd-menu__contentBlock">
+                  <li><a href="#">Pete OShea</a></li>
+                  <li><a href="#">Guillaume Feliciano</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">Donate</a></li>
+        </ul>
+      </div>
+    </nav>
+  </body>
+</html>
