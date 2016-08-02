@@ -28,7 +28,12 @@ gulp.task('build-less', function () {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('build', ['clean', 'semistandard', 'build-less'], function () {
+gulp.task('copy-images', function () {
+  return gulp.src('coderdojo-logo-light-bg.svg')
+    .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('build', ['clean', 'semistandard', 'build-less', 'copy-images'], function () {
   return gulp.src('cd-menu.js')
     .pipe(uglify())
     .pipe(rename('cd-menu.min.js'))
