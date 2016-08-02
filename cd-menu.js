@@ -5,7 +5,7 @@
     return Array.prototype.forEach.call(it, cb);
   }
 
-  window.onload = function () {
+  window.addEventListener('load', function () {
     // Sliding Menu
     (function () {
       var toggle = document.querySelector('.cd-menu__hamburger');
@@ -93,10 +93,10 @@
     // Profile Dropdown
     (function () {
       var menuLinks = [{
-        url: 'https://zen.coderdojo.com/dashboard/my-dojos',
+        url: '/dashboard/my-dojos',
         title: 'My Dojos'
       }, {
-        url: 'https://zen.coderdojo.com/dashboard/dojos/events/user-events',
+        url: '/dashboard/dojos/events/user-events',
         title: 'My Events'
       }];
 
@@ -173,7 +173,7 @@
                 });
                 each(profileMenus, function (profileMenu) {
                   menuLinks.forEach(function (menuLink) {
-                    profileMenu.appendChild(createMenuItem(menuLink.title, menuLink.url));
+                    profileMenu.appendChild(createMenuItem(menuLink.title, zenBase + menuLink.url));
                   });
                 });
                 each(profiles, function (profile) {
@@ -189,5 +189,5 @@
         }
       }, showLoginRegister);
     })();
-  };
+  });
 })();
