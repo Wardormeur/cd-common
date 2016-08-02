@@ -1,6 +1,10 @@
-/* global XMLHttpRequest, CD_MENU_ZEN_BASE */
+/* global XMLHttpRequest */
+if (!window.cdMenuConfig) {
+  window.cdMenuConfig = {};
+}
+
 (function () {
-  var zenBase = CD_MENU_ZEN_BASE || 'https://zen.coderdojo.com';
+  var zenBase = window.cdMenuConfig.zenBase || 'https://zen.coderdojo.com';
   function each (it, cb) {
     return Array.prototype.forEach.call(it, cb);
   }
