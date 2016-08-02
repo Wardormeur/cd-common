@@ -1,11 +1,11 @@
+/* global XMLHttpRequest */
 (function () {
   var zenBase = 'https://zen.coderdojo.com';
-  function each(it, cb) {
+  function each (it, cb) {
     return Array.prototype.forEach.call(it, cb);
   }
 
   window.onload = function () {
-
     // Sliding Menu
     (function () {
       var toggle = document.querySelector('.cd-menu__hamburger');
@@ -15,7 +15,7 @@
       var closeButtons = document.querySelectorAll('.cd-menu__closeButton');
       var menuExpansions = document.querySelectorAll('.cd-menu__slidingMenu .cd-menu__content > ul > li > span');
 
-      function closeDrawer() {
+      function closeDrawer () {
         slidingMenu.setAttribute('data-toggle', 'closed');
         scrim.className = 'cd-menu__scrim';
         each(secondarySlidingMenus, function (secondarySlidingMenu) {
@@ -23,7 +23,7 @@
         });
       }
 
-      function openDrawer() {
+      function openDrawer () {
         slidingMenu.setAttribute('data-toggle', 'open');
         scrim.className = 'cd-menu__scrim cd-menu__scrim--visible';
       }
@@ -63,13 +63,13 @@
       var profileDropdown = document.querySelector('.cd-menu__desktopNav .cd-menu__profile');
       var dropdowns = document.querySelectorAll('.cd-menu__dropdown');
 
-      function closeDropdowns(e) {
+      function closeDropdowns (e) {
         if (e.target !== profileDropdown && e.target.parentElement !== profileDropdown) {
           profileDropdown.setAttribute('data-toggle', 'closed');
         }
         each(dropdowns, function (dropdown) {
-          if (e.target !== dropdown && e.target.parentElement !== dropdown
-            && e.target.parentElement.parentElement !== dropdown) {
+          if (e.target !== dropdown && e.target.parentElement !== dropdown &&
+            e.target.parentElement.parentElement !== dropdown) {
             dropdown.setAttribute('data-toggle', 'closed');
           }
         });
@@ -90,9 +90,8 @@
       document.getElementsByTagName('body')[0].addEventListener('touchstart', closeDropdowns);
     })();
 
-
     // Profile Dropdown
-    (function() {
+    (function () {
       var menuLinks = [{
         url: 'https://zen.coderdojo.com/dashboard/my-dojos',
         title: 'My Dojos'
@@ -109,7 +108,7 @@
       var profilePics = document.querySelectorAll('.cd-menu__profilePic');
       var profileDropdown = document.querySelector('.cd-menu__desktopNav .cd-menu__profile');
 
-      function request(url, postData, success, error) {
+      function request (url, postData, success, error) {
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
           if (this.readyState === 4 && this.status === 200) {
@@ -131,13 +130,13 @@
         xhr.send(postData);
       }
 
-      function showLoginRegister() {
+      function showLoginRegister () {
         each(loginRegisters, function (loginRegister) {
           loginRegister.style.display = 'block';
         });
       }
 
-      function createMenuItem(title, url) {
+      function createMenuItem (title, url) {
         var li = document.createElement('li');
         var a = document.createElement('a');
         a.href = url;
@@ -190,6 +189,5 @@
         }
       }, showLoginRegister);
     })();
-
   };
 })();
