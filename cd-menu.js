@@ -1,6 +1,6 @@
-/* global XMLHttpRequest */
+/* global XMLHttpRequest, CD_MENU_ZEN_BASE */
 (function () {
-  var zenBase = 'https://zen.coderdojo.com';
+  var zenBase = CD_MENU_ZEN_BASE || 'https://zen.coderdojo.com';
   function each (it, cb) {
     return Array.prototype.forEach.call(it, cb);
   }
