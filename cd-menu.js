@@ -6,6 +6,7 @@
   }
 
   var zenBase = window.cdMenuConfig.zenBase || 'https://zen.coderdojo.com';
+  zenBase = zenBase.replace(/\/$/, ''); // remove trailing slash
 
   function each (it, cb) {
     return Array.prototype.forEach.call(it, cb);
