@@ -1,2 +1,2 @@
-# cd-menu
-Common menu for CoderDojo sites
+# cd-common
+Common styles and components for all CoderDojo sites
