@@ -1,6 +1,6 @@
 /* global XMLHttpRequest */
 
-(function () {
+window.cdMenu = function () {
   if (!window.cdMenuConfig) {
     window.cdMenuConfig = {};
   }
@@ -185,4 +185,4 @@
       }
     }, showLoginRegister);
   });
-})();
+};
