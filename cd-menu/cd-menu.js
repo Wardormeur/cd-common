@@ -1,11 +1,11 @@
 /* global XMLHttpRequest */
 
-window.cdMenu = function () {
-  if (!window.cdMenuConfig) {
-    window.cdMenuConfig = {};
+window.cdMenu = function (options) {
+  if (!options) {
+    options = {};
   }
 
-  var zenBase = window.cdMenuConfig.zenBase || 'https://zen.coderdojo.com';
+  var zenBase = options.zenBase || 'https://zen.coderdojo.com';
   zenBase = zenBase.replace(/\/$/, ''); // remove trailing slash
 
   function each (it, cb) {
