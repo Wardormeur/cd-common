@@ -34,7 +34,7 @@ gulp.task('build-less', ['clean'], function () {
 });
 
 gulp.task('copy-images', ['clean'], function () {
-  return gulp.src('coderdojo-logo-light-bg.svg')
+  return gulp.src('images/**/*')
     .pipe(gulp.dest('./dist/'));
 });
 
