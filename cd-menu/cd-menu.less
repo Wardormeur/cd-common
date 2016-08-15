@@ -1,13 +1,4 @@
-@cd-orange: #faa31a;
-@cd-blue: #0093d5;
-@cd-green: #49b749;
-@cd-purple: #73449b;
-@cd-black: #000;
-@cd-white: #f8f8f8;
-@cd-grey: #303030;
-@cd-background: #eee;
-@cd-alt-grey: #bdbfbf;
-@cd-alt-white: #EFF3FD;
+@cd-menu-highlight-color: @cd-blue;
 
 .cd-menu {
   position: fixed;
@@ -80,7 +71,7 @@
             bottom: 0;
             left: 0;
             width: 0;
-            background: @cd-blue;
+            background: @cd-menu-highlight-color;
             opacity: 0;
             transition: width 0.2s ease-out, opacity 0.2s ease-out;
           }
@@ -388,7 +379,7 @@
       font-size: 16px;
       font-weight: 400;
       font-family: Lato,sans-serif;
-      background: @cd-blue;
+      background: @cd-menu-highlight-color;
       border: none;
       text-decoration: none;
       vertical-align: middle;
@@ -458,7 +449,7 @@
           bottom: 0;
           left: 0;
           height: 0;
-          background: @cd-blue;
+          background: @cd-menu-highlight-color;
           opacity: 0;
           transition: height 0.2s ease-out, opacity 0.3s ease-out;
         }
@@ -535,7 +526,7 @@
             bottom: 0;
             left: 0;
             width: 0;
-            background: @cd-blue;
+            background: @cd-menu-highlight-color;
             transition: width 0.2s ease-out, opacity 0.2s ease-out;
             opacity: 0;
           }

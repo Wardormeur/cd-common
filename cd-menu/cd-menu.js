@@ -156,29 +156,23 @@ window.cdMenu = function (options) {
             userId: userData.user.id
           }
         }), function (profile) {
-          request(zenBase + '/api/2.0/profiles/' + profile.id + '/avatar', null, function (avatar) {
-            if (avatar && avatar.imageData && avatar.imageInfo && avatar.imageInfo.type) {
-              each(profilePics, function (profilePic) {
-                profilePic.src = 'data:' + avatar.imageInfo.type + ';base64,' + avatar.imageData;
-              });
-              if (userData.user.roles.indexOf('cdf-admin') !== -1) {
-                each(cdfAdminMenuLinks, function (menuLink) {
-                  menuLink.style.display = 'block';
-                });
-              }
-              each(profiles, function (profile) {
-                profile.style.display = 'block';
-              });
-              each(refererLinks, function (link) {
-                link.addEventListener('click', function (e) {
-                  e.preventDefault();
-                  window.location.href = this.href + '?referer=' + encodeURIComponent(window.location);
-                });
-              });
-            } else {
-              showLoginRegister();
-            }
-          }, showLoginRegister);
+          each(profilePics, function (profilePic) {
+            profilePic.src = zenBase + '/api/2.0/profiles/' + profile.id + '/avatar_img';
+          });
+          if (userData.user.roles.indexOf('cdf-admin') !== -1) {
+            each(cdfAdminMenuLinks, function (menuLink) {
+              menuLink.style.display = 'block';
+            });
+          }
+          each(profiles, function (profile) {
+            profile.style.display = 'block';
+          });
+          each(refererLinks, function (link) {
+            link.addEventListener('click', function (e) {
+              e.preventDefault();
+              window.location.href = this.href + '?referer=' + encodeURIComponent(window.location);
+            });
+          });
         }, showLoginRegister);
       } else {
         showLoginRegister();
