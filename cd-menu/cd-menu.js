@@ -15,11 +15,11 @@ window.cdMenu = function (options) {
   // Sliding Menu
   window.addEventListener('load', function () {
     var toggle = document.querySelector('.cd-menu__hamburger');
-    var slidingMenu = document.querySelector('#cd-menu__slidingMenuPrimary');
+    var slidingMenu = document.querySelector('#cd-menu__sliding-menu-primary');
     var scrim = document.querySelector('.cd-menu__scrim');
-    var secondarySlidingMenus = document.querySelectorAll('.cd-menu__slidingMenuSecondary');
-    var closeButtons = document.querySelectorAll('.cd-menu__closeButton');
-    var menuExpansions = document.querySelectorAll('.cd-menu__slidingMenu .cd-menu__content > ul > li > span');
+    var secondarySlidingMenus = document.querySelectorAll('.cd-menu__sliding-menu-secondary');
+    var closeButtons = document.querySelectorAll('.cd-menu__close-button');
+    var menuExpansions = document.querySelectorAll('.cd-menu__sliding-menu .cd-menu__content > ul > li > span');
 
     function closeDrawer () {
       slidingMenu.setAttribute('data-toggle', 'closed');
@@ -49,8 +49,8 @@ window.cdMenu = function (options) {
     });
 
     each(menuExpansions, function (menuExpansion) {
-      var slidingMenuSecondary = menuExpansion.parentElement.querySelector('.cd-menu__slidingMenuSecondary');
-      var backButton = slidingMenuSecondary.querySelector('.cd-menu__backButton');
+      var slidingMenuSecondary = menuExpansion.parentElement.querySelector('.cd-menu__sliding-menu-secondary');
+      var backButton = slidingMenuSecondary.querySelector('.cd-menu__back-button');
       if (backButton) {
         backButton.addEventListener('click', function () {
           slidingMenuSecondary.setAttribute('data-toggle', 'closed');
@@ -66,7 +66,7 @@ window.cdMenu = function (options) {
 
   // Menu Dropdowns
   window.addEventListener('load', function () {
-    var profileDropdown = document.querySelector('.cd-menu__desktopNav .cd-menu__profile');
+    var profileDropdown = document.querySelector('.cd-menu__desktop-nav .cd-menu__profile');
     var dropdowns = document.querySelectorAll('.cd-menu__dropdown');
 
     function closeDropdowns (e) {
@@ -98,14 +98,14 @@ window.cdMenu = function (options) {
 
   // Profile Dropdown
   window.addEventListener('load', function () {
-    var cdfAdminMenuLinks = document.querySelectorAll('.cd-menu__cdfAdminLink');
+    var cdfAdminMenuLinks = document.querySelectorAll('.cd-menu__cdf-admin-link');
     var loginRegisters = document.querySelectorAll('.cd-menu__account');
     var profiles = document.querySelectorAll('.cd-menu__profile');
-    var profileNames = document.querySelectorAll('.cd-menu__profileName');
-    var profileLinks = document.querySelectorAll('.cd-menu__profileLink');
-    var profilePics = document.querySelectorAll('.cd-menu__profilePic');
-    var profileDropdown = document.querySelector('.cd-menu__desktopNav .cd-menu__profile');
-    var refererLinks = document.querySelectorAll('.cd-menu__refererLink');
+    var profileNames = document.querySelectorAll('.cd-menu__profile-name');
+    var profileLinks = document.querySelectorAll('.cd-menu__profile-link');
+    var profilePics = document.querySelectorAll('.cd-menu__profile-pic');
+    var profileDropdown = document.querySelector('.cd-menu__desktop-nav .cd-menu__profile');
+    var refererLinks = document.querySelectorAll('.cd-menu__referer-link');
 
     function request (url, postData, success, error) {
       var xhr = new XMLHttpRequest();
