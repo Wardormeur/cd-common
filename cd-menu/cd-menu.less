@@ -6,6 +6,7 @@
   right: 0;
   left: 0;
   z-index: 1000;
+  letter-spacing: 1px;
 
   &__profile {
     display: none;
@@ -217,8 +218,9 @@
       transform: translateX(100%);
       transition: transform 0.3s ease-in-out;
       overflow: auto;
-      color: @cd-grey;
+      color: @cd-dark-grey;
       font-size: 16px;
+      letter-spacing: 1px;
 
       &[data-toggle=open] {
         transform: translate(0);
@@ -277,7 +279,7 @@
     &__sliding-menu .cd-menu__content > ul > li > a, &__sliding-menu .cd-menu__content > ul > li > span {
       display: block;
       text-transform: uppercase;
-      color: @cd-grey;
+      color: @cd-dark-grey;
       padding: 12px;
       font-weight: 400;
       position: relative;
