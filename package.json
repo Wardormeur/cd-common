@@ -1,7 +1,7 @@
 {
-  "name": "cd-menu",
+  "name": "cd-common",
   "version": "1.0.0",
-  "description": "Unified menu for CoderDojo websites",
+  "description": "Unified components for CoderDojo websites",
   "main": "cd-menu.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
