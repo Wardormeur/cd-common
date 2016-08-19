@@ -140,7 +140,7 @@
     > * {
       border-left: 1px solid @cd-grey;
       padding: 0 12px;
-    
+
       &:first-child {
         border-left: none;
         padding-left: 0;
@@ -157,7 +157,7 @@
     background: @cd-white;
     padding: 16px;
     padding-top: 140px;
-    width: 100%
+    max-width: 1280px;
   }
 
   &__scrim {
@@ -166,10 +166,12 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1340px) {
   .cd-menu {
+    margin: 0 auto;
+
     &__content-container {
-      max-width: 1280px;
+      margin: 0 auto;
     }
   }
 }
@@ -367,11 +369,20 @@
   }
 }
 
+@media screen and (min-width: 769px) and (max-width: 1340px) {
+  .cd-menu {
+    margin: 0 30px;
+
+    &__content-container {
+      margin: 0 30px;
+    }
+  }
+}
+
 @media screen and (min-width: 769px) {
   .cd-menu {
     background: @cd-very-light-grey;
     max-width: 1280px;
-    margin: 0 auto;
 
     img {
       vertical-align: middle;
