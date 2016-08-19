@@ -162,6 +162,8 @@ window.cdMenu = function (options) {
           if (userData.user.roles.indexOf('cdf-admin') !== -1) {
             each(cdfAdminMenuLinks, function (menuLink) {
               menuLink.style.display = 'block';
+              // TODO fix mobile nav to use classes so this isnt needed
+              menuLink.setAttribute('style', 'display: block !important;');
             });
           }
           each(profiles, function (profile) {
