@@ -159,6 +159,11 @@
     padding-top: 140px;
     width: 100%
   }
+
+  &__scrim {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -297,9 +302,7 @@
       bottom: 0;
       left: 0;
       background: @cd-black;
-      opacity: 0;
       transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-      visibility: hidden;
       z-index: 1001;
       &--visible {
         opacity: 0.4;
@@ -426,7 +429,9 @@
       background: @cd-alt-white;
 
       > li {
+        padding: 0 10px;
         flex: 1;
+        position: relative;
 
         > a, > span {
           display: block;
@@ -441,8 +446,6 @@
           transition: color 0.2s ease-out;
           cursor: pointer;
         }
-
-        position: relative;
 
         &:before {
           content: '';
