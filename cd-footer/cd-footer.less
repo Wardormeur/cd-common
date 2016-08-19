@@ -1,20 +1,44 @@
 .cd-footer {
-	background: @cd-dark-grey;
-	color: @cd-white;
-	padding: 15px 30px;
+  background: @cd-dark-grey;
+  color: @cd-white;
+  padding: 15px 30px;
+  font-size: 13px;
+  max-width: 1280px;
+  margin: 0 auto;
 
-	&__foundation-logo {
-		margin-top: 10px;
-	}
+  &__foundation-logo {
+    margin: 10px 10px 10px 0;
+    max-width: 200px;
+  }
 
-	&__social-icons {
-		&__icon {
-			color: @cd-dark-grey;
-		}
-	}
+  &__address-line {
+    display: block;
 
-	&__language-picker {
-		border-top: 1px solid @cd-white;
-		margin-top: 15px;
-	}
+    &:last-child {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__social-icons {
+    a {
+      display: inline-block;
+    }
+
+    &__icon {
+      color: @cd-dark-grey;
+    }
+  }
+
+  &__language-picker {
+    border-top: 1px solid @cd-white;
+    margin-top: 15px;
+  }
+
+  a, a:hover {
+    color: @cd-white;
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1340px) {
+    margin: 0 30px;
+  }
 }
