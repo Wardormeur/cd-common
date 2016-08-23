@@ -15,6 +15,11 @@
     align-items: center;
 
     &-pic {
+      display: inline-block;
+      background-image: url(/img/avatar.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
       border-radius: 100%;
       width: 32px;
       height: 32px;
@@ -301,7 +306,9 @@
     }
 
     &__sliding-menu .cd-menu__content > ul > li > a, &__sliding-menu .cd-menu__content > ul > li > span {
-      display: block;
+      display: flex;
+      flex: 1;
+      align-items: center;
       text-transform: uppercase;
       color: @cd-dark-grey;
       padding: 12px;
@@ -368,10 +375,9 @@
         margin: 0;
         padding: 12px;
 
-        > img {
+        .cd-menu__profile-pic {
           width: 128px;
           height: 128px;
-          border-radius: 100%;
         }
 
         > span {
