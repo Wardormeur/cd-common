@@ -152,7 +152,7 @@ window.cdMenu = function (options) {
           profileLink.href = zenBase + '/profile/' + userData.user.id;
         });
         each(profilePics, function (profilePic) {
-          profilePic.src = zenBase + '/api/2.0/profiles/' + userData.user.profileId + '/avatar_img';
+          profilePic.style.backgroundImage = 'url(' + zenBase + '/api/2.0/profiles/' + userData.user.profileId + '/avatar_img)';
         });
         if (userData.user.roles.indexOf('cdf-admin') !== -1) {
           each(cdfAdminMenuLinks, function (menuLink) {
