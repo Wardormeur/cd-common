@@ -151,31 +151,25 @@ window.cdMenu = function (options) {
         each(profileLinks, function (profileLink) {
           profileLink.href = zenBase + '/profile/' + userData.user.id;
         });
-        request(zenBase + '/api/2.0/profiles/user-profile-data', JSON.stringify({
-          query: {
-            userId: userData.user.id
-          }
-        }), function (profile) {
-          each(profilePics, function (profilePic) {
-            profilePic.src = zenBase + '/api/2.0/profiles/' + profile.id + '/avatar_img';
+        each(profilePics, function (profilePic) {
+          profilePic.src = zenBase + '/api/2.0/profiles/' + userData.user.profileId + '/avatar_img';
+        });
+        if (userData.user.roles.indexOf('cdf-admin') !== -1) {
+          each(cdfAdminMenuLinks, function (menuLink) {
+            menuLink.style.display = 'block';
+            // TODO fix mobile nav to use classes so this isnt needed
+            menuLink.setAttribute('style', 'display: block !important;');
           });
-          if (userData.user.roles.indexOf('cdf-admin') !== -1) {
-            each(cdfAdminMenuLinks, function (menuLink) {
-              menuLink.style.display = 'block';
-              // TODO fix mobile nav to use classes so this isnt needed
-              menuLink.setAttribute('style', 'display: block !important;');
-            });
-          }
-          each(profiles, function (profile) {
-            profile.style.display = 'block';
+        }
+        each(profiles, function (profile) {
+          profile.style.display = 'flex';
+        });
+        each(refererLinks, function (link) {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.location.href = this.href + '?referer=' + encodeURIComponent(window.location);
           });
-          each(refererLinks, function (link) {
-            link.addEventListener('click', function (e) {
-              e.preventDefault();
-              window.location.href = this.href + '?referer=' + encodeURIComponent(window.location);
-            });
-          });
-        }, showLoginRegister);
+        });
       } else {
         showLoginRegister();
       }
