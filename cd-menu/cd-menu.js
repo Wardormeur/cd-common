@@ -106,6 +106,7 @@ window.cdMenu = function (options) {
     var profilePics = document.querySelectorAll('.cd-menu__profile-pic');
     var profileDropdown = document.querySelector('.cd-menu__desktop-nav .cd-menu__profile');
     var refererLinks = document.querySelectorAll('.cd-menu__referer-link');
+    var eLearningLinks = document.querySelectorAll('.cd-menu__e-learning-link');
 
     function request (url, postData, success, error) {
       var xhr = new XMLHttpRequest();
@@ -134,7 +135,24 @@ window.cdMenu = function (options) {
         loginRegister.style.display = 'block';
       });
     }
-
+    function canSeeELearningModule (userDojos) {
+      var userTypeIndex = 0;
+      var userDojosIndex = 0;
+      var isAllowed = false;
+      var allowedUserTypes = ['mentor', 'champion'];
+      while (!isAllowed && userDojosIndex < userDojos.length) {
+        var userDojo = userDojos[userDojosIndex];
+        while (!isAllowed && userTypeIndex < userDojo.userTypes.length) {
+          var userType = userDojo.userTypes[userTypeIndex];
+          if (allowedUserTypes.indexOf(userType) > -1) {
+            isAllowed = true;
+          }
+          userTypeIndex += 1;
+        }
+        userDojosIndex += 1;
+      }
+      return isAllowed;
+    }
     profileDropdown.addEventListener('click', function () {
       if (this.getAttribute('data-toggle') === 'open') {
         this.setAttribute('data-toggle', 'closed');
@@ -169,6 +187,18 @@ window.cdMenu = function (options) {
             e.preventDefault();
             window.location.href = this.href + '?referer=' + encodeURIComponent(window.location);
           });
+        });
+        request(zenBase + '/api/2.0/dojos/users', '{"query": {"userId":"' + userData.user.id + '"}}', function (userDojos) {
+          if (userDojos) {
+            var isAllowed = canSeeELearningModule(userDojos);
+            if (isAllowed) {
+              each(eLearningLinks, function (link) {
+                link.style.display = 'block';
+                // TODO fix mobile nav to use classes so this isnt needed
+                link.setAttribute('style', 'display: block !important;');
+              });
+            }
+          }
         });
       } else {
         showLoginRegister();
