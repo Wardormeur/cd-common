@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var rename = require('gulp-rename');
-var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
 var semistandard = require('gulp-semistandard');
 var concat = require('gulp-concat');
@@ -28,7 +27,6 @@ gulp.task('build-less', ['clean'], function () {
     .pipe(less({
       compress: true
     }))
-    .pipe(autoprefixer())
     .pipe(rename('cd-common.min.css'))
     .pipe(gulp.dest('./dist/'));
 });
