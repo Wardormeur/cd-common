@@ -139,7 +139,7 @@ window.cdMenu = function (options) {
       var userTypeIndex = 0;
       var userDojosIndex = 0;
       var isAllowed = false;
-      var allowedUserTypes = ['mentor', 'champion'];
+      var allowedUserTypes = ['mentor', 'champion', 'parent-guardian'];
       while (!isAllowed && userDojosIndex < userDojos.length) {
         var userDojo = userDojos[userDojosIndex];
         while (!isAllowed && userTypeIndex < userDojo.userTypes.length) {
@@ -189,7 +189,9 @@ window.cdMenu = function (options) {
           });
         });
         request(zenBase + '/api/2.0/dojos/users', '{"query": {"userId":"' + userData.user.id + '"}}', function (userDojos) {
-          if (userDojos) {
+          var initUserType = JSON.parse(userData.user.initUserType);
+          userDojos.push({userTypes: [initUserType.name]});
+          if (userDojos && userDojos.length > 0) {
             var isAllowed = canSeeELearningModule(userDojos);
             if (isAllowed) {
               each(eLearningLinks, function (link) {
