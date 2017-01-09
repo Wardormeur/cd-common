@@ -107,6 +107,7 @@ window.cdMenu = function (options) {
     var profileDropdown = document.querySelector('.cd-menu__desktop-nav .cd-menu__profile');
     var refererLinks = document.querySelectorAll('.cd-menu__referer-link');
     var eLearningLinks = document.querySelectorAll('.cd-menu__e-learning-link');
+    var parentLinks = document.querySelectorAll('.cd-menu__parent-link');
 
     function request (url, postData, success, error) {
       var xhr = new XMLHttpRequest();
@@ -130,11 +131,16 @@ window.cdMenu = function (options) {
       xhr.send(postData);
     }
 
-    function showLoginRegister () {
-      each(loginRegisters, function (loginRegister) {
-        loginRegister.style.display = 'block';
-      });
+    function showElement (el) {
+      el.style.display = 'block';
+      // TODO fix mobile nav to use classes so this isnt needed
+      el.setAttribute('style', 'display: block !important;');
     }
+
+    function showLoginRegister () {
+      each(loginRegisters, showElement);
+    }
+
     function canSeeELearningModule (userDojos) {
       var userTypeIndex = 0;
       var userDojosIndex = 0;
@@ -153,6 +159,7 @@ window.cdMenu = function (options) {
       }
       return isAllowed;
     }
+
     profileDropdown.addEventListener('click', function () {
       if (this.getAttribute('data-toggle') === 'open') {
         this.setAttribute('data-toggle', 'closed');
@@ -173,11 +180,7 @@ window.cdMenu = function (options) {
           profilePic.style.backgroundImage = 'url(' + zenBase + '/api/2.0/profiles/' + userData.user.profileId + '/avatar_img)';
         });
         if (userData.user.roles.indexOf('cdf-admin') !== -1) {
-          each(cdfAdminMenuLinks, function (menuLink) {
-            menuLink.style.display = 'block';
-            // TODO fix mobile nav to use classes so this isnt needed
-            menuLink.setAttribute('style', 'display: block !important;');
-          });
+          each(cdfAdminMenuLinks, showElement);
         }
         each(profiles, function (profile) {
           profile.style.display = 'flex';
@@ -188,17 +191,18 @@ window.cdMenu = function (options) {
             window.location.href = this.href + '?referer=' + encodeURIComponent(window.location);
           });
         });
+        request(zenBase + '/api/2.0/profiles/children-for-user/' + userData.user.id, null, function (children) {
+          if (children.length > 0) {
+            each(parentLinks, showElement);
+          }
+        });
         request(zenBase + '/api/2.0/dojos/users', '{"query": {"userId":"' + userData.user.id + '"}}', function (userDojos) {
           var initUserType = JSON.parse(userData.user.initUserType);
           userDojos.push({userTypes: [initUserType.name]});
           if (userDojos && userDojos.length > 0) {
             var isAllowed = canSeeELearningModule(userDojos);
             if (isAllowed) {
-              each(eLearningLinks, function (link) {
-                link.style.display = 'block';
-                // TODO fix mobile nav to use classes so this isnt needed
-                link.setAttribute('style', 'display: block !important;');
-              });
+              each(eLearningLinks, showElement);
             }
           }
         });
