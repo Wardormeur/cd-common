@@ -179,6 +179,9 @@ window.cdMenu = function (options) {
         each(profilePics, function (profilePic) {
           profilePic.style.backgroundImage = 'url(' + zenBase + '/api/2.0/profiles/' + userData.user.profileId + '/avatar_img)';
         });
+        if (userData.user.initUserType.indexOf('attendee') === -1) {
+          each(parentLinks, showElement);
+        }
         if (userData.user.roles.indexOf('cdf-admin') !== -1) {
           each(cdfAdminMenuLinks, showElement);
         }
@@ -190,11 +193,6 @@ window.cdMenu = function (options) {
             e.preventDefault();
             window.location.href = this.href + '?referer=' + encodeURIComponent(window.location);
           });
-        });
-        request(zenBase + '/api/2.0/profiles/children-for-user/' + userData.user.id, null, function (children) {
-          if (children.length > 0) {
-            each(parentLinks, showElement);
-          }
         });
         request(zenBase + '/api/2.0/dojos/users', '{"query": {"userId":"' + userData.user.id + '"}}', function (userDojos) {
           var initUserType = JSON.parse(userData.user.initUserType);
