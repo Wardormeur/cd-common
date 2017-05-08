@@ -174,7 +174,7 @@ window.cdMenu = function (options) {
           profileName.innerText = userData.user.name;
         });
         each(profileLinks, function (profileLink) {
-          profileLink.href = zenBase + '/profile/' + userData.user.id;
+          profileLink.href = zenBase + '/dashboard/profile/' + userData.user.id + '/edit';
         });
         each(profilePics, function (profilePic) {
           profilePic.style.backgroundImage = 'url(' + zenBase + '/api/2.0/profiles/' + userData.user.profileId + '/avatar_img)';
