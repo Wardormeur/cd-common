@@ -1,6 +1,6 @@
 {
   "name": "cd-common",
-  "version": "1.1.4",
+  "version": "1.1.6",
   "description": "Unified components for CoderDojo websites",
   "main": "cd-menu.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-less": "^3.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-semistandard": "^0.2.2",
+    "gulp-semistandard": "^1.0.0",
     "gulp-uglify": "^2.0.0"
   }
 }

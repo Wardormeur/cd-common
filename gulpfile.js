@@ -38,9 +38,10 @@ gulp.task('copy-images', ['clean'], function () {
 
 gulp.task('build-js', ['clean', 'semistandard'], function () {
   return gulp.src([
-    '*/**/*.js',
+    '**/*.js',
     '!node_modules/**/*',
-    '!dist/**/*'
+    '!dist/**/*',
+    '!gulpfile.js'
   ])
     .pipe(concat('cd-common.min.js'))
     .pipe(uglify())
