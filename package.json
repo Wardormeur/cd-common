@@ -1,5 +1,5 @@
 {
-  "name": "cd-common",
+  "name": "@coderdojo/cd-common",
   "version": "1.1.6",
   "description": "Unified components for CoderDojo websites",
   "main": "cd-menu.js",
