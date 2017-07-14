@@ -1,7 +1,7 @@
 @cd-menu-highlight-color: @cd-blue;
 
 .cd-menu {
-  position: fixed;
+  position: sticky;
   top: 0;
   right: 0;
   left: 0;
@@ -186,8 +186,7 @@
   &__content-container {
     margin: 0 auto;
     background: @cd-white;
-    padding: 16px;
-    padding-top: 140px;
+    padding: 0 16px;
     max-width: 1280px;
   }
 
@@ -393,10 +392,6 @@
           display: block;
         }
       }
-    }
-
-    &__content-container {
-      padding-top: 66px;
     }
   }
 }
