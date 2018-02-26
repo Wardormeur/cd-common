@@ -41,7 +41,8 @@ gulp.task('build-js', ['clean', 'semistandard'], function () {
     '**/*.js',
     '!node_modules/**/*',
     '!dist/**/*',
-    '!gulpfile.js'
+    '!gulpfile.js',
+    '!build/**/*'
   ])
     .pipe(concat('cd-common.min.js'))
     .pipe(uglify())
