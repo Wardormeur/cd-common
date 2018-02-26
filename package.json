@@ -1,6 +1,6 @@
 {
   "name": "@coderdojo/cd-common",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Unified components for CoderDojo websites",
   "main": "cd-menu.js",
   "scripts": {
