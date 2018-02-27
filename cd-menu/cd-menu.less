@@ -31,7 +31,6 @@
       text-decoration: none;
       margin-left: 6px;
       font-weight: 400;
-      flex: 1;
     }
 
     &-menu {
@@ -61,6 +60,7 @@
 
   &__sub-menu-icon {
     vertical-align: middle;
+    flex: 1;
   }
 
   &__dropdown {
@@ -155,34 +155,35 @@
       border: none;
     }
   }
-
   &__account {
-    display: none;
-    text-align: right;
+    display: flex;
+    > * {
+      padding: 0 12px;
+      &:first-child {
+        border-left: 0;
+      }
 
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+  &__nav-right {
+    display: flex;
+    text-align: right;
+    align-items: center;
     a {
       color: @cd-grey;
       text-transform: uppercase;
-      display: inline-block;
+      display: flex;
       text-decoration: none;
       font-weight: 400;
       &.emphasis {
         color: @cd-blue;
       }
     }
-
-    > * {
-      border-left: 1px solid @cd-grey;
+    > a {
       padding: 0 12px;
-
-      &:first-child {
-        border-left: none;
-        padding-left: 0;
-      }
-
-      &:last-child {
-        padding-right: 0;
-      }
     }
   }
 
@@ -242,8 +243,42 @@
       }
     }
 
+    &__content-pre {
+      a {
+        display: block;
+        flex: 1;
+        align-items: center;
+        text-transform: uppercase;
+        color: @cd-dark-grey;
+        padding: 12px;
+        font-weight: 400;
+        position: relative;
+        text-decoration: none;
+      }
+      > a {
+        border-top: 1px solid @cd-alt-grey;
+      }
+    }
+
+    &[data-loggedin=true] {
+      & .cd-menu__content-pre {
+        display: flex;
+        flex-direction: column-reverse;
+        > a {
+          border-top: 0;
+          border-bottom: 1px solid @cd-alt-grey;
+        }
+      }
+    }
+
     &__account {
       border-bottom: 1px solid @cd-alt-grey;
+      flex-direction: column;
+      padding: 0;
+      > * {
+        border-left: 0;
+        border-top: 1px solid @cd-alt-grey;
+      }
     }
 
     &__sliding-menu {
@@ -272,7 +307,7 @@
         list-style-type: none;
       }
 
-      .cd-menu__content > ul > li {
+      .cd-menu__content ul > li {
         border-bottom: 1px solid @cd-alt-grey;
 
         > span {
@@ -316,7 +351,7 @@
       }
     }
 
-    &__sliding-menu .cd-menu__content > ul > li > a, &__sliding-menu .cd-menu__content > ul > li > span {
+    &__sliding-menu .cd-menu__content ul > li > a, &__sliding-menu .cd-menu__content ul > li > span {
       display: flex;
       flex: 1;
       align-items: center;
@@ -417,7 +452,7 @@
     img {
       vertical-align: middle;
     }
-
+    
     &__donate-button {
       color: @cd-white;
       padding: .6em 1em;

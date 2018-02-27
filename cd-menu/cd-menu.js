@@ -8,12 +8,13 @@ window.cdMenu = function (options) {
   var zenBase = options.zenBase || 'https://zen.coderdojo.com';
   zenBase = zenBase.replace(/\/$/, ''); // remove trailing slash
 
+  var menus = document.querySelectorAll('.cd-menu');
   var toggle = document.querySelector('.cd-menu__hamburger');
   var slidingMenu = document.querySelector('#cd-menu__sliding-menu-primary');
   var scrim = document.querySelector('.cd-menu__scrim');
   var secondarySlidingMenus = document.querySelectorAll('.cd-menu__sliding-menu-secondary');
   var closeButtons = document.querySelectorAll('.cd-menu__close-button');
-  var menuExpansions = document.querySelectorAll('.cd-menu__sliding-menu .cd-menu__content > ul > li > span');
+  var menuExpansions = document.querySelectorAll('.cd-menu__sliding-menu .cd-menu__content ul > li > span');
   var profileDropdown = document.querySelector('.cd-menu__desktop-nav .cd-menu__profile');
   var dropdowns = document.querySelectorAll('.cd-menu__dropdown');
   var cdfAdminMenuLinks = document.querySelectorAll('.cd-menu__cdf-admin-link');
@@ -53,19 +54,18 @@ window.cdMenu = function (options) {
   }
 
   function showElement (el) {
-    el.style.display = 'block';
+    el.style.display = this.display || 'block';
     // TODO fix mobile nav to use classes so this isnt needed
-    el.setAttribute('style', 'display: block !important;');
+    el.setAttribute('style', 'display: ' + el.style.display + ' !important;');
   }
 
   function hideElement (el) {
-    el.style.display = 'block';
     // TODO fix mobile nav to use classes so this isnt needed
     el.setAttribute('style', 'display: none !important;');
   }
 
   function showLoginRegister () {
-    each(loginRegisters, showElement);
+    each(loginRegisters, showElement.bind({ display: 'flex' }));
   }
 
   function hideLoginRegister () {
@@ -159,16 +159,18 @@ window.cdMenu = function (options) {
     each(dropdowns, function (dropdown) {
       dropdown.addEventListener('click', toggleDropdown);
     });
-
-    profileDropdown.addEventListener('click', toggleDropdown);
-
+    if (profileDropdown) {
+      profileDropdown.addEventListener('click', toggleDropdown);
+    }
     document.getElementsByTagName('body')[0].addEventListener('click', closeDropdowns);
 
     document.getElementsByTagName('body')[0].addEventListener('touchstart', closeDropdowns);
   }
 
   function initProfileMenu () {
-    profileDropdown.addEventListener('click', toggleDropdown);
+    if (profileDropdown) {
+      profileDropdown.addEventListener('click', toggleDropdown);
+    }
     each(refererLinks, function (link) {
       link.addEventListener('click', function (e) {
         e.preventDefault();
@@ -180,6 +182,9 @@ window.cdMenu = function (options) {
   function loadProfileMenu () {
     request(zenBase + '/api/2.0/users/instance', null, function (userData) {
       if (userData && userData.user) {
+        each(menus, function (menu) {
+          menu.setAttribute('data-loggedin', true);
+        });
         each(profileNames, function (profileName) {
           profileName.innerText = userData.user.name;
         });
