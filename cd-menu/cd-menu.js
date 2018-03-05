@@ -53,8 +53,8 @@ window.cdMenu = function (options) {
     return Array.prototype.forEach.call(it, cb);
   }
 
-  function showElement (el) {
-    el.style.display = this.display || 'block';
+  function showElement (el, display) {
+    el.style.display = display || 'block';
     // TODO fix mobile nav to use classes so this isnt needed
     el.setAttribute('style', 'display: ' + el.style.display + ' !important;');
   }
@@ -65,7 +65,9 @@ window.cdMenu = function (options) {
   }
 
   function showLoginRegister () {
-    each(loginRegisters, showElement.bind({ display: 'flex' }));
+    each(loginRegisters, function (el) {
+      showElement(el, 'flex');
+    });
   }
 
   function hideLoginRegister () {
